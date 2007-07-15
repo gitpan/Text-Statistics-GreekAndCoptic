@@ -13,11 +13,11 @@ Text::Statistics::GreekAndCoptic - Performs statistical corpora analysis
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 use 5.006;
 use Text::ParseWords;
 use utf8;

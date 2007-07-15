@@ -1,16 +1,31 @@
-Text-Statistics-GreekAndCoptic version 0.01
-===========================================
+Text-Statistics-GeekAndCoptic version 0.05
+==========================================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+ABSTRACT
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+This module performs corpora(1) statatistical analysis.
+
+DESCRIPTION
+
+Text::Statistics::GeekAndCoptic creates a seven column CSV file output, with one line each token per text, given as input a latin-utf8 coded corpus that files names follows:
+    1 (1). txt', '1 (2). txt', ..., '1 (n).txt'  or
+    1 \(([1-9]|[1-9][0-9]+)\)\.txt
+Columns stores statistical information:
+(1) number of word forms in document d;
+(2) number of tokens in d;
+(3) Id number of d, ie., n;
+(4) frequency of term t in d;
+(5) corpus frequency(2) of t ;
+(6) document frequency of t (number of documents where t occurs at least once);
+(7) t, UTF8 latin-coded token-string
+
+Main output file name is '1 (n + 5).txt' and it is stored in the same directory as
+the corpus itself, together with residual files on each input file with .txu and .txv ad hoc extensions.
+
+Example:
+
+    use Text::Statistics::GeekAndCoptic;
+    &greekandcoptic("4"); #3, i.e (4-1) texts will be analysed.
 
 INSTALLATION
 
@@ -25,16 +40,25 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  blah blah blah
+	utf8
+	Text::ParseWords
+
+SEE ALSO
+
+	http://search.cpan.org/~ambs/
+	http://search.cpan.org/~tpederse/
+	
+
+REFERENCES
+
+(1) BERBER-SARDINHA, Tony. Linguistica de Corpus. Manole, 2004
+(2) http://www-csli.stanford.edu/~schuetze/information-retrieval-book.html
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
-Copyright (C) 2007 by A. U. Thor
+Copyright (C) 2007 by Rodrigo Panchiniak Fernandes
+This code was written under CAPES BEX-09323-5
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
-
-
